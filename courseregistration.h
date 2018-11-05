@@ -2,21 +2,19 @@
 #define COURSEREGISTRATION_H
 
 #include <QWidget>
-#include <QTableWidget>
-#include <QComboBox>
-#include <QPushButton>
-#include <QLabel>
-#include <QStatusBar>
-#include "level.h"
-#include <QAbstractItemModel>
-#include <QHash>
-#include <QString>
-#include "course.h"
 #include <vector>
+#include <QHash>
+#include "level.h"
 
+class QLabel;
 class RegisterDialog;
 class Assessment;
-
+class QComboBox;
+class QAbstractItemModel;
+class QTableWidget;
+class Course;
+class QPushButton;
+class QStatusBar;
 
 class CourseRegistration : public QWidget
 {
@@ -26,13 +24,11 @@ public:
     CourseRegistration(QWidget *parent = 0);
    // ~CourseRegistration();
 
-
 private slots:
     void saveButtonClicked();
     void selectLevelComboChanged();
     void okButtonClicked();
     void cancelButtonClicked();
-
 
 private:
 
@@ -59,12 +55,12 @@ private:
     Level level300;
     Level level400;
     Level level500;
+    
     friend class RegisterDialog;
     friend class Assessment;
+    
     static QHash<QString, Level> *levels;
     std::vector<QString>l;
-
-
 
 };
 
